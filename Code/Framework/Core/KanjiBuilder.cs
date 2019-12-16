@@ -27,7 +27,7 @@ namespace Framework.Core
         }
 
         /// <summary>
-        /// Call the Identifier class and ask for the next available Id.
+        /// Call the Identifier class and asks for the next available Id.
         /// </summary>
         public void GenerateId()
         {

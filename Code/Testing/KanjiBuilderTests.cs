@@ -26,6 +26,25 @@ namespace Testing
         }
 
         [TestMethod]
+        public void MultipleKunyomiReadings()
+        {
+            KanjiBuilder kb = new KanjiBuilder();
+            kb.GenerateId();
+            kb.SetName("Fire");
+            kb.SetSymbol("火");
+            kb.AddAlternativeMeaning("Nothing");
+            kb.AddOnyomiReading("か");
+            kb.AddKunyomiReading("ひ");
+            kb.AddKunyomiReading("ほ");
+            kb.AddKunyomiReading("ぱ");
+            kb.AddKunyomiReading("へい");
+            kb.AddVisuallySimilarKanji("K010");
+            kb.AddFoundInVocabulary("V110");
+            Kanji kanji = kb.ToKanji();
+            Assert.AreEqual(4, kanji.KunyomiReadings.Count);
+        }
+
+        [TestMethod]
         public void CtorNoOptionals()
         {
             KanjiBuilder kb = new KanjiBuilder();
@@ -43,7 +62,7 @@ namespace Testing
 
         [TestMethod]
         [ExpectedException(typeof(BuilderException))]
-        public void CtorNoCompleted()
+        public void CtorNotCompleted()
         {
             KanjiBuilder kb = new KanjiBuilder();
             var kanji = kb.ToKanji();

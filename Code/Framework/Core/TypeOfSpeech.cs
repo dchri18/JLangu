@@ -6,6 +6,7 @@ namespace Framework.Core
 {
     public enum TypeOfSpeech
     {
+        Unknown,
         Noun,
         Adjective,
         Verb,

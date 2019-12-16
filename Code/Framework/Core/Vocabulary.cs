@@ -7,7 +7,7 @@ namespace Framework.Core
     /// <summary>
     /// Standard Object containing all static data related to a particular piece of Japanese Vocabulary.
     /// </summary>
-    class Vocabulary : IVocabulary
+    public class Vocabulary : IVocabulary
     {
         /// <summary>
         /// The unique identifier of the object for the entire project.
@@ -22,7 +22,7 @@ namespace Framework.Core
         /// <summary>
         /// Alternative English ways of reading the vocabulary.
         /// </summary>
-        public string[] Synynoms { get; }
+        public List<string> Synynoms { get; }
 
         /// <summary>
         /// The type of speech the vocabulary falls under.
@@ -40,9 +40,9 @@ namespace Framework.Core
         public string NoKanjiReading { get; }
 
         /// <summary>
-        /// Kanji used in the normal reading of the vocabulary.
+        /// Id of Kanji used in the normal reading of the vocabulary.
         /// </summary>
-        public string[] UsedKanji { get; }
+        public List<string> UsedKanji { get; }
 
         /// <summary>
         /// Basic constructor used to create a Vocabulary Object.
@@ -53,16 +53,16 @@ namespace Framework.Core
         /// <param name="type">The type of speech the vocabulary falls under.</param>
         /// <param name="reading">The Japanese way of reading the vocabulary.</param>
         /// <param name="NoKanjiReading">The Hiragana or Katakana only reading of the word.</param>
-        /// <param name="usedKanji">Kanji used in the normal reading of the vocabulary.</param>
-        public Vocabulary(string id, string name, string[] synynoms, TypeOfSpeech type, string reading, string noKanjiReading, string[] usedKanji)
+        /// <param name="usedKanji">Id of Kanji used in the normal reading of the vocabulary.</param>
+        public Vocabulary(string id, string name, TypeOfSpeech type, string reading, string noKanjiReading, List<string> usedKanji = null, List<string> synynoms = null)
         {
             Id = id;
             Name = name;
-            Synynoms = synynoms;
+            Synynoms = synynoms ?? new List<string>();
             Type = type;
             Reading = reading;
             NoKanjiReading = noKanjiReading;
-            UsedKanji = usedKanji;
+            UsedKanji = usedKanji ?? new List<string>();
         }
 
         public override string ToString()
