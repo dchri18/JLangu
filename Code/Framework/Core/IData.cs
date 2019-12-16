@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Framework.Core
 {
-    internal interface IGradable
+    internal interface IData
     {
+        string Id { get; }
     }
 }

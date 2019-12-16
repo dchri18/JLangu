@@ -12,7 +12,7 @@ namespace Framework.Core
         /// <summary>
         /// The unique identifier of the object for the entire project.
         /// </summary>
-        public int Id { get; }
+        public string Id { get; }
 
         /// <summary>
         /// The english reading of the vocabulary.
@@ -54,7 +54,7 @@ namespace Framework.Core
         /// <param name="reading">The Japanese way of reading the vocabulary.</param>
         /// <param name="NoKanjiReading">The Hiragana or Katakana only reading of the word.</param>
         /// <param name="usedKanji">Kanji used in the normal reading of the vocabulary.</param>
-        public Vocabulary(int id, string name, string[] synynoms, TypeOfSpeech type, string reading, string noKanjiReading, string[] usedKanji)
+        public Vocabulary(string id, string name, string[] synynoms, TypeOfSpeech type, string reading, string noKanjiReading, string[] usedKanji)
         {
             Id = id;
             Name = name;

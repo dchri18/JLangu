@@ -6,7 +6,7 @@ namespace Framework.Core
 {
     internal interface IVocabulary
     {
-        int Id { get; }
+        string Id { get; }
 
         string ToString();
     }
