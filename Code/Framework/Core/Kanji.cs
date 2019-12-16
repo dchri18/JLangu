@@ -7,7 +7,7 @@ namespace Framework.Core
     /// <summary>
     /// Standard Object containing all static data related to a particular Kanji.
     /// </summary>
-    class Kanji : IVocabulary
+    public class Kanji : IVocabulary
     {
         /// <summary>
         /// The unqiue identifier for this Kanji.
@@ -27,27 +27,27 @@ namespace Framework.Core
         /// <summary>
         /// Other english meanings for this Kanji.
         /// </summary>
-        public string[] AlternativeMeanings { get; }
+        public List<string> AlternativeMeanings { get; }
 
         /// <summary>
         /// All On'yomi readings for this Kanji in Hiragana.
         /// </summary>
-        public string[] OnyomiReadings { get; }
+        public List<string> OnyomiReadings { get; }
 
         /// <summary>
         /// All Kun'yomi readings for this Kanji.
         /// </summary>
-        public string[] KunyomiReadings { get; }
+        public List<string> KunyomiReadings { get; }
 
         /// <summary>
         /// Kanji that are visually similar.
         /// </summary>
-        public string[] VisuallySimilarKanji { get; }
+        public List<string> VisuallySimilarKanji { get; }
 
         /// <summary>
         /// List of Ids of all Japanese Vocabulary that use this Kanji.
         /// </summary>
-        public string[] FoundInVocabulary { get; }
+        public List<string> FoundInVocabulary { get; }
 
         /// <summary>
         /// Basic constructor for a Kanji Object.
@@ -58,19 +58,19 @@ namespace Framework.Core
         /// <param name="alternativeMeanings">Other english meanings for this Kanji.</param>
         /// <param name="onyomiReadings">All On'yomi readings for this Kanji in Hiragana.</param>
         /// <param name="kunyomiReadings">All Kun'yomi readings for this Kanji.</param>
-        /// <param name="visuallySimilarKanji">Kanji that are visually similar.</param>
-        /// <param name="foundInVocabulary">List of Ids of all Japanese Vocabulary that use this Kanji.</param>
-        public Kanji(string id, string name, string symbol, string[] alternativeMeanings,
-            string[] onyomiReadings, string[] kunyomiReadings, string[] visuallySimilarKanji, string[] foundInVocabulary)
+        /// <param name="visuallySimilarKanji">Ids of Kanji that are visually similar.</param>
+        /// <param name="foundInVocabulary">Ids of all Japanese Vocabulary that use this Kanji.</param>
+        public Kanji(string id, string name, string symbol, List<string> onyomiReadings, List<string> kunyomiReadings, 
+            List<string> visuallySimilarKanji = null, List<string> foundInVocabulary = null, List<string> alternativeMeanings = null)
         {
             Id = id;
             Name = name;
             Symbol = symbol;
-            AlternativeMeanings = alternativeMeanings;
+            AlternativeMeanings = alternativeMeanings ?? new List<string>();
             OnyomiReadings = onyomiReadings;
             KunyomiReadings = kunyomiReadings;
-            VisuallySimilarKanji = visuallySimilarKanji;
-            FoundInVocabulary = foundInVocabulary;
+            VisuallySimilarKanji = visuallySimilarKanji ?? new List<string>();
+            FoundInVocabulary = foundInVocabulary ?? new List<string>();
         }
 
         public override string ToString()

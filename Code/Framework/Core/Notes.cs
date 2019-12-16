@@ -6,5 +6,6 @@ namespace Framework.Core
 {
     class Notes : IData
     {
+        public string Id { get; }
     }
 }

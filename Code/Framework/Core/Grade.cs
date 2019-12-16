@@ -6,5 +6,6 @@ namespace Framework.Core
 {
     class Grade : IData
     {
+        public string Id { get; }
     }
 }
