@@ -15,6 +15,7 @@ namespace Framework.Core
         private string _id;
         private string _name;
         private string _symbol;
+        private int _level;
         private List<string> _alternativeMeanings;
         private List<string> _onyomiReadings;
         private List<string> _kunyomiReadings;
@@ -57,6 +58,15 @@ namespace Framework.Core
         public void SetSymbol(string symbol)
         {
             _symbol = symbol;
+        }
+
+        /// <summary>
+        /// Set the level of the Kanji Object.
+        /// </summary>
+        /// <param name="level">Indicates when the Kanji should be unlocked based on the Users level.</param>
+        public void SetLevel(int level)
+        {
+            _level = level;
         }
 
         /// <summary>
@@ -169,13 +179,13 @@ namespace Framework.Core
         {
             // Check if all required parameters are assigned to within the KanjiBuilder.
             if (_id == null || _name == null || _symbol == null ||
-                _onyomiReadings == null || _kunyomiReadings == null)
+                _onyomiReadings == null || _kunyomiReadings == null || _level == 0)
             {
                 throw new BuilderException("Not all required parameters were filled when building Kanji Object.");
             }
 
             // Create the Kanji and return it.
-            _kanji = new Kanji(_id, _name, _symbol, _onyomiReadings, _kunyomiReadings, _visuallySimilarKanji, _foundInVocabulary, _alternativeMeanings);
+            _kanji = new Kanji(_id, _name, _symbol, _onyomiReadings, _kunyomiReadings, _level, _visuallySimilarKanji, _foundInVocabulary, _alternativeMeanings);
             return _kanji;
         }
 

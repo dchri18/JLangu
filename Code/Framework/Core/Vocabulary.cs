@@ -45,6 +45,11 @@ namespace Framework.Core
         public List<string> UsedKanji { get; }
 
         /// <summary>
+        /// Indicates when the Vocabulary should be unlocked based on the Users level.
+        /// </summary>
+        public int Level { get; }
+
+        /// <summary>
         /// Basic constructor used to create a Vocabulary Object.
         /// </summary>
         /// <param name="id">The unique identifier of the object for the entire project.</param>
@@ -54,7 +59,8 @@ namespace Framework.Core
         /// <param name="reading">The Japanese way of reading the vocabulary.</param>
         /// <param name="NoKanjiReading">The Hiragana or Katakana only reading of the word.</param>
         /// <param name="usedKanji">Id of Kanji used in the normal reading of the vocabulary.</param>
-        public Vocabulary(string id, string name, TypeOfSpeech type, string reading, string noKanjiReading, List<string> usedKanji = null, List<string> synynoms = null)
+        public Vocabulary(string id, string name, TypeOfSpeech type, string reading, string noKanjiReading, int level, 
+            List<string> usedKanji = null, List<string> synynoms = null)
         {
             Id = id;
             Name = name;
@@ -63,6 +69,7 @@ namespace Framework.Core
             Reading = reading;
             NoKanjiReading = noKanjiReading;
             UsedKanji = usedKanji ?? new List<string>();
+            Level = level;
         }
 
         public override string ToString()

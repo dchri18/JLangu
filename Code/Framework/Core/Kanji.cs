@@ -50,6 +50,11 @@ namespace Framework.Core
         public List<string> FoundInVocabulary { get; }
 
         /// <summary>
+        /// Indicates when the Kanji should be unlocked based on the Users level.
+        /// </summary>
+        public int Level { get; }
+
+        /// <summary>
         /// Basic constructor for a Kanji Object.
         /// </summary>
         /// <param name="id">The unqiue identifier for this Kanji.</param>
@@ -60,7 +65,7 @@ namespace Framework.Core
         /// <param name="kunyomiReadings">All Kun'yomi readings for this Kanji.</param>
         /// <param name="visuallySimilarKanji">Ids of Kanji that are visually similar.</param>
         /// <param name="foundInVocabulary">Ids of all Japanese Vocabulary that use this Kanji.</param>
-        public Kanji(string id, string name, string symbol, List<string> onyomiReadings, List<string> kunyomiReadings, 
+        public Kanji(string id, string name, string symbol, List<string> onyomiReadings, List<string> kunyomiReadings, int level,
             List<string> visuallySimilarKanji = null, List<string> foundInVocabulary = null, List<string> alternativeMeanings = null)
         {
             Id = id;
@@ -71,6 +76,7 @@ namespace Framework.Core
             KunyomiReadings = kunyomiReadings;
             VisuallySimilarKanji = visuallySimilarKanji ?? new List<string>();
             FoundInVocabulary = foundInVocabulary ?? new List<string>();
+            Level = level;
         }
 
         public override string ToString()

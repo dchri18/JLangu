@@ -17,6 +17,7 @@ namespace Testing
             vb.AddSynonym("Heat");
             vb.SetType(TypeOfSpeech.Noun);
             vb.SetReading("火");
+            vb.SetLevel(5);
             vb.SetNoKanjiReading("ひ");
             vb.AddUsedKanji("K10");
             Vocabulary vocab = vb.ToVocabulary();
@@ -30,6 +31,7 @@ namespace Testing
             vb.GenerateId();
             vb.SetName("Fire");
             vb.SetReading("火");
+            vb.SetLevel(5);
             vb.SetNoKanjiReading("ひ");
             Vocabulary vocab = vb.ToVocabulary();
             Assert.AreEqual(0, vocab.Synynoms.Count);

@@ -15,6 +15,7 @@ namespace Testing
             kb.GenerateId();
             kb.SetName("Fire");
             kb.SetSymbol("火");
+            kb.SetLevel(5);
             kb.AddAlternativeMeaning("Nothing");
             kb.AddOnyomiReading("か");
             kb.AddKunyomiReading("ひ");
@@ -32,6 +33,7 @@ namespace Testing
             kb.GenerateId();
             kb.SetName("Fire");
             kb.SetSymbol("火");
+            kb.SetLevel(5);
             kb.AddAlternativeMeaning("Nothing");
             kb.AddOnyomiReading("か");
             kb.AddKunyomiReading("ひ");
@@ -51,6 +53,7 @@ namespace Testing
             kb.GenerateId();
             kb.SetName("Fire");
             kb.SetSymbol("火");
+            kb.SetLevel(5);
             kb.AddOnyomiReading("か");
             kb.AddKunyomiReading("ひ");
             kb.AddKunyomiReading("ほ");
@@ -76,6 +79,7 @@ namespace Testing
             kb.GenerateId();
             kb.SetName("Fire");
             kb.SetSymbol("火");
+            kb.SetLevel(5);
             kb.AddAlternativeMeaning("Nothing");
             kb.AddOnyomiReading("か");
             kb.AddKunyomiReading("ひ");
@@ -91,6 +95,7 @@ namespace Testing
             kb.GenerateId();
             kb.SetName("Fire");
             kb.SetSymbol("火");
+            kb.SetLevel(5);
             kb.AddAlternativeMeaning("Nothing");
             kb.AddOnyomiReading("か");
             kb.AddKunyomiReading("ひ");

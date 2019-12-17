@@ -20,6 +20,7 @@ namespace Framework.Core
         private string _reading;
         private string _noKanjiReading;
         private List<string> _usedKanji;
+        private int _level;
 
         public VocabularyBuilder()
         {
@@ -117,6 +118,15 @@ namespace Framework.Core
             }
         }
 
+        /// <summary>
+        /// Set the Level of the Vocabulary Object.
+        /// </summary>
+        /// <param name="level">Indicates when the Vocabulary should be unlocked based on the Users level.</param>
+        public void SetLevel(int level)
+        {
+            _level = level;
+        }
+
         public override string ToString()
         {
             return "Vocabulary Builder Object";
@@ -129,13 +139,13 @@ namespace Framework.Core
         public Vocabulary ToVocabulary()
         {
             // Check if all required parameters are assigned to within the VocabularyBuilder.
-            if (_id == null || _name == null || _reading == null || _noKanjiReading == null )
+            if (_id == null || _name == null || _reading == null || _noKanjiReading == null || _level == 0)
             {
                 throw new BuilderException("Not all required parameters were filled when building Vocabulary Object.");
             }
 
             // Create the Vocab and return it.
-            _vocab = new Vocabulary(_id, _name, _type, _reading, _noKanjiReading, _usedKanji, _synynoms);
+            _vocab = new Vocabulary(_id, _name, _type, _reading, _noKanjiReading, _level, _usedKanji, _synynoms);
             return _vocab;
         }
 
