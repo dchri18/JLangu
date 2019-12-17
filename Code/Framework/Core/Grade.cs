@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Framework.Core
 {
-    class Grade : IData
+    class Grade
     {
         public string Id { get; }
     }

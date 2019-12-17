@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Framework.Utilities;
+using Framework.Exceptions;
 
 namespace Framework.Core
 {
@@ -40,14 +42,14 @@ namespace Framework.Core
         public List<string> KunyomiReadings { get; }
 
         /// <summary>
-        /// Kanji that are visually similar.
+        /// List of Ids of all Kanji that are visually similar.
         /// </summary>
-        public List<string> VisuallySimilarKanji { get; }
+        public List<string> VisuallySimilarKanji { get; private set; }
 
         /// <summary>
         /// List of Ids of all Japanese Vocabulary that use this Kanji.
         /// </summary>
-        public List<string> FoundInVocabulary { get; }
+        public List<string> FoundInVocabulary { get; private set; }
 
         /// <summary>
         /// Indicates when the Kanji should be unlocked based on the Users level.
@@ -82,6 +84,78 @@ namespace Framework.Core
         public override string ToString()
         {
             return Symbol;
+        }
+
+        /// <summary>
+        /// Adds the Id of another Kanji object that looks similar to this one.
+        /// </summary>
+        /// <param name="id">The Id of the other Kanji.</param>
+        public void AddVisuallySimilarKanji(string id)
+        {
+            if (!Identifier.IsForKanji(id))
+            {
+                throw new IdentifierException($"Invalid identifier for Kanji:<{ id}>");
+            }
+
+            VisuallySimilarKanji.Add(id);
+        }
+
+        /// <summary>
+        /// Adds the Id of another Vocabulary that uses this Kanji.
+        /// </summary>
+        /// <param name="id">The Id of the Vocabulary.</param>
+        public void AddFoundInVocabulary(string id)
+        {
+            if (!Identifier.IsForVocab(id))
+            {
+                throw new IdentifierException($"Invalid identifier for Vocabulary:<{id}>");
+            }
+
+            FoundInVocabulary.Add(id);
+        }
+
+        /// <summary>
+        /// Remove the Id of a visually similar Kanji.
+        /// </summary>
+        /// <param name="id">The Id of the visually similar kanji to be removed.</param>
+        public void RemoveVisuallySimilarKanji(string id)
+        {
+            if (!Identifier.IsForKanji(id))
+            {
+                throw new IdentifierException($"Invalid identifier for Kanji:<{ id}>");
+            }
+
+            VisuallySimilarKanji.Remove(id);
+        }
+        
+        /// <summary>
+        /// Remove the Id of the Vocabulary this Kanji is found in.
+        /// </summary>
+        /// <param name="id">The Id of the vocabulary to be removed from this reference.</param>
+        public void RemoveFoundInVocabulary(string id)
+        {
+            if (!Identifier.IsForVocab(id))
+            {
+                throw new IdentifierException($"Invalid identifier for Vocabulary:<{id}>");
+            }
+
+            FoundInVocabulary.Remove(id);
+        }
+
+        /// <summary>
+        /// Clear all Ids of visually similar Kanji.
+        /// </summary>
+        public void ClearVisuallySimilarKanji()
+        {
+            VisuallySimilarKanji.Clear();
+        }
+
+        /// <summary>
+        /// Clear all Ids of Vocabulary this Kanji is found in.
+        /// </summary>
+        public void ClearFoundInVocabulary()
+        {
+            FoundInVocabulary.Clear();
         }
     }
 }

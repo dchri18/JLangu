@@ -52,6 +52,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KanjiTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KanjiBuilderTests.cs" />
     <Compile Include="IdentifierTests.cs" />

@@ -123,7 +123,7 @@ namespace Framework.Core
         /// <summary>
         /// Add an Id of a visually similar Kanji to the Kanji Object.
         /// </summary>
-        /// <param name="id">Kanji that are visually similar.</param>
+        /// <param name="id">List of Ids of all Kanji that are visually similar.</param>
         public void AddVisuallySimilarKanji(string id)
         {
             // Exception is thrown if "id" is found to be invalid.

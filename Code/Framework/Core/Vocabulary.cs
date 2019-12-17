@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Framework.Utilities;
+using Framework.Exceptions;
 
 namespace Framework.Core
 {
@@ -42,7 +44,7 @@ namespace Framework.Core
         /// <summary>
         /// Id of Kanji used in the normal reading of the vocabulary.
         /// </summary>
-        public List<string> UsedKanji { get; }
+        public List<string> UsedKanji { get; private set; }
 
         /// <summary>
         /// Indicates when the Vocabulary should be unlocked based on the Users level.
@@ -75,6 +77,42 @@ namespace Framework.Core
         public override string ToString()
         {
             return Reading;
+        }
+
+        /// <summary>
+        /// Add the Id of a Kanji that is used in this Vocabulary.
+        /// </summary>
+        /// <param name="id">The Id of the Kanji.</param>
+        public void AddUsedKanji(string id)
+        {
+            if (!Identifier.IsForKanji(id))
+            {
+                throw new IdentifierException($"Invalid identifier for Kanji:<{id}>");
+            }
+
+            UsedKanji.Add(id);
+        }
+
+        /// <summary>
+        /// Remove the Id of a used Kanji.
+        /// </summary>
+        /// <param name="id">The Id of the used Kanji.</param>
+        public void RemoveUsedKanji(string id)
+        {
+            if (!Identifier.IsForKanji(id))
+            {
+                throw new IdentifierException($"Invalid identifier for Kanji:<{id}>");
+            }
+
+            UsedKanji.Remove(id);
+        }
+
+        /// <summary>
+        /// Remove all Used Kanji entries.
+        /// </summary>
+        public void ClearUsedKanji()
+        {
+            UsedKanji.Clear();
         }
     }
 }
