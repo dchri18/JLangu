@@ -6,6 +6,8 @@ namespace Framework.Core
 {
     public class Notes
     {
+        // Sets an Id to each entry within the note object.
+        // These Ids are set per instance and are not needed to store object as JSON.
         private int _newestId;
 
         private Dictionary<int, string> _entries;
