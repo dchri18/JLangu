@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Framework.Core
 {
-    class Grade
+    public class Grade
     {
         /// <summary>
         /// Used to identify what IVocabulary object this is permanetley associated with.

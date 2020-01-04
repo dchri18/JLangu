@@ -16,6 +16,12 @@ namespace Application
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+
+            // Initialise ALL Key classes here:
+            // Encryption.Initialise()
+            // UserManager.Initialise()
+            // VocabularyManager.Initialise()
+
             //System.Windows.Forms.Application.Run(new Form1());
         }
     }

@@ -5,7 +5,7 @@ using Framework.Core;
 
 namespace Framework.Managers
 {
-    static class UserManager
+    public static class UserManager
     {
         // Keeps track of the current users level.
         // No other functionality for the time being.
