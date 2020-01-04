@@ -13,10 +13,16 @@ namespace Framework.Core
         private Dictionary<int, string> _entries;
 
         /// <summary>
+        /// Used to identify what IVocabulary object this is permanetley associated with.
+        /// </summary>
+        public string IVocabularyId { get; }
+
+        /// <summary>
         /// Create a new empty Notes Object.
         /// </summary>
-        public Notes()
+        public Notes(string id)
         {
+            IVocabularyId = id;
             _entries = new Dictionary<int, string>();
         }
 
@@ -24,8 +30,9 @@ namespace Framework.Core
         /// Create a new Notes Object with one entry.
         /// </summary>
         /// <param name="entry">A user customised note.</param>
-        public Notes(string entry)
+        public Notes(string id, string entry)
         {
+            IVocabularyId = id;
             _entries = new Dictionary<int, string>();
             AddEntry(entry);
         }
